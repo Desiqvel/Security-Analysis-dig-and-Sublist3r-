@@ -17,6 +17,10 @@ subdomains = sublist3r.main(dName, 40, dName + 'sub.txt', ports= None, silent=Fa
 
 myCmd = ("dig -f %ssub.txt +short > %sipaddr.txt" % (dName, dName))
 
-#ipaddrun = dig -f dNamesub.txt +short 
-for i in myCmd:
-  print(i)
+
+os.system(myCmd)
+#lines = (%sipaddr.read().split(',') % (dName))
+
+
+#for i in myCmd:
+#  print(i)
