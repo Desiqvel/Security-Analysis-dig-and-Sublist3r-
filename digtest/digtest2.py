@@ -10,22 +10,19 @@ dName = sys.argv[1]
 ofName = dName + "output.txt"
 outputFile = open(ofName, "w")
 with open(dName + 'sub.txt') as text_file:
-    for domainName in text_file:
-        #ip = os.system("dig %s +short")
-        domainName = domainName.rstrip()
-        cmd = ("dig %s +short" % domainName)
-        #ip = subprocess.check_output([cmd])
-        ip = os.popen(cmd).read()
-        #ip = subprocess.check_output(["dig", "%s", "+short", "% domainName"])
-        #print("DOMAIN:>"+domainName+", IP: >"+ip+"<")
-        ip = ip.rstrip()
-        outputFile.write("Domain:>"+domainName+", IP:>"+ip+"<")
-        
-        #outputFile.write('\n')
-        #exit()
+	for domainName in text_file:
+		domainName = domainName.rstrip()
+		cmd = ("dig %s +short | grep -P '^(?:(?![a-z]).)*$'" % domainName)
+		ip = os.popen(cmd).read()
+		ip = ip.rstrip()
+		ip = ip.split('\n')
+  #     	 outputFile.write("Domain:>"+domainName+", IP:>"+ip+"<")
+		if len(ip) > 1:
+			for line in ip:
+				outputFile.write(line+"|"+domainName+"\n")
+		else:
+			outputFile.write(ip[0]+"|"+domainName+"\n")
 
-        
 
-        
 outputFile.close()
 text_file.close()

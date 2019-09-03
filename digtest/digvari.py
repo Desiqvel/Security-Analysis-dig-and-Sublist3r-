@@ -19,7 +19,7 @@ with open(dName + 'sub.txt') as text_file:
 	for line in text_file:
 #			myfile.write(line)
 #			myCmd = ("%s test  >> %sipaddr.txt" % (line))
-			myCmd = ("%s >> %sipaddr.txt && dig %s +short | grep -P '^(?:(?![a-z]).)*$' >> %sipaddr.txt" % (line, dName, line, dName))
+			myCmd = ("echo '%s' >> %sipaddr.txt && dig +short %s | grep -P '^(?:(?![a-z]).)*$' >> %sipaddr.txt" % (line, dName, line, dName))
 			os.system(myCmd)
 
 
