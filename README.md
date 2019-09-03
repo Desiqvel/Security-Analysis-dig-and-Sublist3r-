@@ -49,8 +49,6 @@ Not fully working
 Get `digvari.py` to print out subdomain and IP-Address
 Example print:
 ```
-1111.2222.3333.4444
-sub.subdomain.org
-5555.6666.7777.8888
-database.subdomain.com
+1111.2222.3333.4444 - sub.subdomain.org
+5555.6666.7777.8888 - database.subdomain.com
 ```
