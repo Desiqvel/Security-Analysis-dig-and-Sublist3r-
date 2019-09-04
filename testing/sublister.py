@@ -20,30 +20,22 @@ myCmd = ("dig -f %ssub.txt +short > %sipaddr.txt" % (dName, dName))
 
 os.system(myCmd)
 
-grep -P '^(?:(?![a-z]).)*$'
+#grep -P '^(?:(?![a-z]).)*$'
 
 
 
 
 
-with open(dName + 'sub.txt') as text_file, open(dName + 'ipaddr.txt', 'w') as myfile:  
+#with open(dName + 'sub.txt') as text_file, open(dName + 'ipaddr.txt', 'w') as myfile:  
 
 #myfile = open(dName + 'sub.txt', 'w')
 
-for line in text_file:
-	myfile.writelines(text_file)
+#for line in text_file:
+#	myfile.writelines(text_file)
 	
-	myfile.write("Now the file has more content!")
+#	myfile.write("Now the file has more content!")
 
-myfile.close()
-text_file.close()
-
-
+#myfile.close()
+#text_file.close()
 
 
-
-#lines = (%sipaddr.read().split(',') % (dName))
-
-
-#for i in myCmd:
-#  print(i)
