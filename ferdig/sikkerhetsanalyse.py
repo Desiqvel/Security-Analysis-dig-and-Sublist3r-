@@ -7,8 +7,6 @@ import os
 
 dName = sys.argv[1]
 
-print ("Starting to print from " + dName)
-
 subdomains = sublist3r.main(dName, 40, dName + '.sub.txt', ports= None, silent=False, verbose= False, enable_bruteforce= False, engines=None)
 
 #myCmd = ("dig -f %s.sub.txt +short > %s.ipaddr.txt" % (dName, dName))
@@ -63,3 +61,17 @@ with open(dName + ".unsIP.txt", 'r') as inp, open(dName + '.sortedIP.txt', 'w') 
 
 infile.close()
 outfile.close()
+
+#Sort so no duplicates of IP
+
+lines_seen = set() # holds lines already seen
+outfiledup = open(dName + '.sortNoDupIP.txt', "w")
+for line in open(dName + '.sortedIP.txt', "r"):
+    if line not in lines_seen: # not a duplicate
+        outfiledup.write(line)
+        lines_seen.add(line)
+outfiledup.close()
+
+
+
+
