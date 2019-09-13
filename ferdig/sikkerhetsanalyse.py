@@ -8,6 +8,22 @@ import os
 # Gets argument from user
 dName = sys.argv[1]
 
+# Checks if config parameter is supplied before starting the script
+def get_config_path():
+    if len(sys.argv) != 2:
+        print("## Script Usage: ")
+        print(sys.argv[0] + " [Config file]")
+        sys.exit()
+    path = sys.argv[1]
+    config_file = Path(path)
+    if config_file.exists():
+        return path
+    else:
+        print("File specified in arument does not exist...")
+        print("Terminating script!!")
+        sys.exit()
+
+
 # Runs sublist3r with the address from the argument
 # Makes a .sub.txt file to be used later
 subdomains = sublist3r.main(dName, 40, dName + '.sub.txt', ports= None, silent=False, verbose= False, enable_bruteforce= False, engines=None)
