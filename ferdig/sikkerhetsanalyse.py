@@ -4,29 +4,54 @@ import sublist3r
 import subprocess
 import sys
 import os
-
-# Gets argument from user
-dName = sys.argv[1]
+#import os.path
 
 # Checks if config parameter is supplied before starting the script
-def get_config_path():
-    if len(sys.argv) != 2:
-        print("## Script Usage: ")
-        print(sys.argv[0] + " [Config file]")
-        sys.exit()
-    path = sys.argv[1]
-    config_file = Path(path)
-    if config_file.exists():
-        return path
-    else:
-        print("File specified in arument does not exist...")
-        print("Terminating script!!")
-        sys.exit()
+#def get_config_path():
+#    if len(sys.argv) != 2:
+#        print("## Script Usage: ")
+#        print(sys.argv[0] + " [Config file]")
+#        sys.exit()
+#    path = sys.argv[1]
+#    config_file = Path(path)
+#    if config_file.exists():
+#        return path
+#    else:
+#        print("File specified in arument does not exist...")
+#        print("Terminating script!!")
+#        sys.exit()
+
+# Saves argument from user
+
+
+
+if len(sys.argv) < 2:
+    print("You must parse a website address in the argument")
+    sys.exit()
+
+dName = sys.argv[1]
 
 
 # Runs sublist3r with the address from the argument
 # Makes a .sub.txt file to be used later
 subdomains = sublist3r.main(dName, 40, dName + '.sub.txt', ports= None, silent=False, verbose= False, enable_bruteforce= False, engines=None)
+
+
+
+try:
+    f = open(dName + '.sub.txt')
+    f.close()
+except FileNotFoundError:
+    print('File does not exist, no subdomains found')
+    sys.exit()
+
+# checks if file is accessible
+try:
+    f = open(dName + '.sub.txt')
+    f.close()
+except IOError:
+    print('File is not accessible')
+    sys.exit()
 
 # 	Dig runs sub-addresss and get their IP
 

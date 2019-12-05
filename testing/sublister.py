@@ -15,10 +15,10 @@ subdomains = sublist3r.main(dName, 40, dName + 'sub.txt', ports= None, silent=Fa
 
 #myCmd = 'dig -f dNamesub.txt +short > dNameipaddr.txt'
 
-myCmd = ("dig -f %ssub.txt +short > %sipaddr.txt" % (dName, dName))
+#myCmd = ("dig -f %ssub.txt +short > %sipaddr.txt" % (dName, dName))
 
 
-os.system(myCmd)
+#os.system(myCmd)
 
 #grep -P '^(?:(?![a-z]).)*$'
 
