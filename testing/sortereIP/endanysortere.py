@@ -6,10 +6,10 @@ import sys
 import os
 import subprocess
 
-dName = "nrk.noIPout.txt"
+dName = sys.argv[1]
 
 
-with open(dName, "r") as infile:
+with open(dName + "IPout.txt", "r") as infile:
 	iplist = sorted([i.strip() for i in infile.readlines()], key = lambda x: int(''.join((lambda a:lambda v:a(a,v))(lambda s,x: x if len(x) == 3 else s(s, '0'+x))(i) for i in x.split('.'))))
 
 
