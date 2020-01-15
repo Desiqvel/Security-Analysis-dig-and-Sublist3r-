@@ -29,11 +29,13 @@ with open(dName + '.IP_SUB.txt', "r") as k:
 #          f.write("%s|%s" % (ip, sub))
 #        for item in ip:
 #          if len(ip.strip()) > 0:		#checks if no line
-          helpme = helpme + allip
-          if helpme == ip:
-            match = match + sub
+#          helpme = helpme + allip
+          
+          if allip == ip:
+            match.append(sub)
 #        str1 = ''.join(match)
-        f.write("%s" % helpme)
+        
+        f.write("{}".format(allip) + "|" + "{}".format(match))
 #        f.write(allip + '<-ip' + '|' + 'sub->' + str1) # + '\n') 
 
 
