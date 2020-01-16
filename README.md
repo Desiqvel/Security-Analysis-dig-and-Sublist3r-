@@ -12,27 +12,37 @@ It is successfully tested on a _Kali Linux 64-Bit_ with the following capabiliti
   Use the updated _Kali Linux 64-Bit_ with sublist3r and dig installed. 
   Python 3 or older
 
-Installation of Sublist3r (git clone https://github.com/aboul3la/Sublist3r.git)
+Installed Sublist3r 
+Installed Dig
 
 ## Installation
 
-If sublist3r isn't preinstalled download it from https://github.com/aboul3la/Sublist3r 
-Dig should be preinstalled, if not download it with the following command in terminal:
+If sublist3r isn't preinstalled download it from https://github.com/aboul3la/Sublist3r and remember to also install its dependencies.
+```
+git clone https://github.com/aboul3la/Sublist3r.git 
+```
+
+Dig should be preinstalled, if not, download it with the following command in terminal:
 ```
 sudo apt-get install dnsutils
 ```
 then:
-`apt update & apt dist-upgrade`
+```
+apt update & apt dist-upgrade
+```
 
-Installation of the environment is done with the following steps:
+
+## Execution
+
+Use the script with the following steps:
 1. Clone this repository;
 
-2. Refer to prerequisites for software needed;
+2. Refer to dependencies for software needed;
 
 3. Run the following command inside downloaded folder;
 
 ```
-./sikkerhetsanalyse.py < DOMAIN NAME >
+./sikkerhetsanalyse.py < DOMAIN_NAME >
 ```
 4. The script makes a .csv file;
 
