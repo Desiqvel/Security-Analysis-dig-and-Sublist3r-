@@ -1,23 +1,40 @@
 # Sikkerhetsanalyse
 
-## Synopsis
+#### Table of Contents
 
-It is successfully tested on a _Kali Linux 64-Bit_ with the following capabilities are included:
+1. [Overview - What is sikkerhetsanalyse.py?](#overview)
+1. [Module Description - What does the module do?](#module-description)
+1. [Dependencies - What is needed?](#dependencies)
+1. [Execution - Getting started with Sikkerhetsanalyse.py](#execution)
+1. [Usage - Configuration options and additional functionality](#usage)
+    * [Examples](#examples)
+    * [Disclaimer](#disclaimer)
+1. [Limitations - OS compatibility, etc.](#limitations)
+1. [Improve](#improve)
 
+## Overview
+
+This module runs a script that runs sublist3r and dig to and reports the outcome to a file.
 - Sublist3r - Scans a domain to get subdomains
 - Dig - Scans a subdomain to get host IP-address
 
+It is successfully tested on a _Kali Linux 64-Bit_
 
-## Dependencies 
-  Use the updated _Kali Linux 64-Bit_ with sublist3r and dig installed. 
-  Python 3 or older
+## Module Description
 
-Installed Sublist3r 
+This script should support Ubuntu 14.04/16.04/18.04, Debian 7/8 and RedHat derivates 6/7.
+
+This module will install a script using python 3
+
+## Dependencies  
+  
+Python 3 or older
+Installed Sublist3r and its dependencies
 Installed Dig
 
-## Installation
+### Installation of dependencies
 
-If sublist3r isn't preinstalled download it from https://github.com/aboul3la/Sublist3r and remember to also install its dependencies.
+Download Sublist3r from https://github.com/aboul3la/Sublist3r and remember to also install its dependencies.
 ```
 git clone https://github.com/aboul3la/Sublist3r.git 
 ```
@@ -44,30 +61,42 @@ Use the script with the following steps:
 ```
 ./sikkerhetsanalyse.py < DOMAIN_NAME >
 ```
-4. The script makes a .csv file;
+4. The script makes a .csv file(or .txt file);
 
 
 ## Usage
 
-To get subdomains and IP-addresses to subdomains to a .csv file.
+To get subdomains and IP-addresses to subdomains to a .csv or .txt file.
 
 `sikkerhetsanalyse.py` prints out subdomain and IP-Address
-Example print:
+
+### Examples
+Example print for .csv file:
+```
+IP,Sub_domain
+1111.2222.3333.4444,sub.subdomain.org
+5555.6666.7777.8888,"database.subdomain.com,database2.subdomain.com,database3.subdomain.com"
+```
+
+Example print for .txt file:
 ```
 1111.2222.3333.4444|sub.subdomain.org
 5555.6666.7777.8888|database.subdomain.com,database2.subdomain.com,database3.subdomain.com
 ```
 
-## Disclaimer
+### Disclaimer
 
-To use the .csv file you have to split two times;
+To get the .txt file you have to remove the commented lines in the bottom of the script.
+To use the .txt file in another script you have to split two times;
 1. `.split('|')` - to get IP-adress and subdomains
-
 2. `.split(',')` - to get list of subdomains
 
 
 To get files in `testing` to work you first have to run `testScriptMaker.py` for all the necessary .txt files
 
+## Limitations
+
+Only tried on Kali linux and python 3.0
 
 ## Improve
 
