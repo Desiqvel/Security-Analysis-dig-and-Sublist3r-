@@ -14,9 +14,9 @@
 
 ## Overview
 
-This module runs a script that runs sublist3r and dig to and reports the outcome to a file.
-- Sublist3r - Scans a domain to get subdomains
-- Dig - Scans a subdomain to get host IP-address
+This script runs sublist3r and dig and reports the outcome to a file.
+ * Sublist3r - Scans a domain to get subdomains
+ * Dig - Scans a subdomain to get host IP-address
 
 It is successfully tested on a _Kali Linux 64-Bit_
 
@@ -32,7 +32,7 @@ Python 3 or older
 Installed Sublist3r and its dependencies
 Installed Dig
 
-### Installation of dependencies
+### Installation
 
 Download Sublist3r from https://github.com/aboul3la/Sublist3r and remember to also install its dependencies.
 ```
