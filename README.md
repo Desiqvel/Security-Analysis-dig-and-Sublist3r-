@@ -1,4 +1,4 @@
-# Sikkerhetsanalyse
+# Security Analysis dig and Sublist3r (Sikkerhetsanalyse)
 
 #### Table of Contents
 
